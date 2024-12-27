@@ -3,7 +3,7 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-   /*========== Colors ==========*/
+  /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   /*
       Blue: hsl(207, 90%, 61%) (57)
@@ -20,7 +20,7 @@
   --sat: 44%;
   --lig: 63%;
   --first-color: hsl(var(--hue), var(--sat), var(--lig));
-  --first-color-alt: hsl(var(--hue), var(--sat), 60%); /* -4% */
+  --first-color-alt: hsl(var(--hue), var(--sat), 80%); /* -4% */
   --title-color: hsl(var(--hue), 12%, 15%);
   --text-color: hsl(var(--hue), 12%, 45%);
   --text-color-light: hsl(var(--hue), 8%, 75%);
@@ -163,11 +163,7 @@ body.dark-theme {
 .profile__perfil {
   width: 100px;
   height: 100px;
-  background: linear-gradient(
-    180deg,
-    hsla(var(--hue), var(--sat), var(--lig), 1) 0%,
-    hsla(var(--hue), var(--sat), var(--lig), 0.2) 100%
-  );
+  background: linear-gradient(180deg, hsla(var(--hue), var(--sat), var(--lig), 1) 0%, hsla(var(--hue), var(--sat), var(--lig), 0.2) 100%);
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -176,7 +172,8 @@ body.dark-theme {
 }
 
 .profile__perfil img {
-  width: 75px;
+  width: 80%;
+  margin-bottom: 10px;
 }
 
 .profile__border {
@@ -331,11 +328,7 @@ body.dark-theme {
   height: 100%;
   bottom: -100%;
   left: 0;
-  background: linear-gradient(
-    180deg,
-    hsla(var(--hue), 24%, 40%, 0.3) 0%,
-    hsla(var(--hue), 24%, 4%, 1) 95%
-  );
+  background: linear-gradient(180deg, hsla(var(--hue), 24%, 40%, 0.3) 0%, hsla(var(--hue), 24%, 4%, 1) 95%);
   display: grid;
   align-items: flex-end;
   padding: 1.5rem 1.25rem;
@@ -365,8 +358,12 @@ body.dark-theme {
 }
 /*=============== SKILLS ===============*/
 
-.skills__content {
+/* .skills__content {
   row-gap: 3.5rem;
+} */
+
+.skills__content {
+  row-gap: 2rem; /* Sesuaikan jarak antar baris */
 }
 
 .skills__title {
@@ -375,10 +372,22 @@ body.dark-theme {
   margin-bottom: 1.5rem;
 }
 
-.skills__box {
+/* .skills__box {
   display: flex;
   justify-content: center;
   column-gap: 3rem;
+} */
+
+.skills__box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default untuk 2 kolom */
+  gap: 1rem; /* Jarak antar item */
+}
+
+@media screen and (min-width: 992px) {
+  .skills__box {
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk layar desktop */
+  }
 }
 
 .skills__group {
@@ -422,6 +431,32 @@ body.dark-theme {
 }
 
 /*=============== FOOTER ===============*/
+.more-project {
+  display: flex;
+  font-family: var(--body-font);
+  margin: 0 auto; /* Pastikan elemen terpusat horizontal */
+  padding: 1rem; /* Tambahkan jarak dalam elemen */
+  color: var(--text-color);
+  font-size: var(--small-font-size); /* Gunakan ukuran font yang sesuai */
+  text-align: center; /* Pusatkan teks dalam elemen */
+  line-height: 1.5; /* Tambahkan keterbacaan dengan line-height */
+  max-width: 600px; /* Batasi lebar maksimal untuk tampilan lebih rapi */
+  align-items: center; /* Pusatkan konten secara vertikal */
+  justify-content: center; /* Pusatkan konten secara horizontal */
+  margin-top: 5%; /* Memberikan jarak 30% dari elemen di atasnya */
+}
+
+.more-project a {
+  text-decoration: none; /* Menghilangkan garis bawah */
+  color: inherit; /* Menghapus warna default dan mewarisi warna teks */
+  font-weight: 500; /* Berikan ketebalan font */
+  font-family: var(--body-font); /* Gunakan font yang sesuai */
+}
+
+.more-project:hover {
+  color: var(--first-color);
+}
+
 .footer__copy {
   display: block;
   margin: 2.4rem 0 2rem;
